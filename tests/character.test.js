@@ -5,7 +5,7 @@ describe('TEST: сharacter', () => {
     const received = new Character({ health: 200, attack: 30, defence: 40 });
     const expected = { health: 400, attack: 60, defence: 80 };
 
-    received._powerMode = true;
+    received.powerMode = true;
     received.attackCharacter();
     received.attackCharacter();
 
@@ -17,7 +17,7 @@ describe('TEST: сharacter', () => {
     const received = new Character({ health: 200, attack: 30, defence: 40 });
     const expected = { health: 200, attack: 30, defence: 40 };
 
-    received._powerMode = true;
+    received.powerMode = true;
     received.attackCharacter();
     received.attackCharacter();
     received.attackCharacter();
@@ -42,7 +42,7 @@ describe('TEST: сharacter', () => {
   test('setter is not a boolean', () => {
     const received = new Character({ health: 200, attack: 30, defence: 40 });
 
-    const setPowerMode = () => received._powerMode = 31312312;
+    const setPowerMode = () => received.powerMode = 31312312;
     expect(setPowerMode).toThrow();
   });
 });

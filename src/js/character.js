@@ -4,28 +4,24 @@ export default class Character {
     this._health = obj.health;
     this._attack = obj.attack;
     this._defence = obj.defence;
-    this.countAttak = 3;
-    this.powerMode = false;
+    this._countAttak = 3;
+    this._powerMode = false;
   }
 
-  get _countAttak() {
-    return this.countAttak;
-  }
-
-  set _powerMode(state) {
+  set powerMode(state) {
     if (typeof state !== 'boolean') throw new TypeError('setter is not a boolean');
-    this.powerMode = (this._countAttak >= 0) ? state : false;
+    this._powerMode = (this._countAttak >= 0) ? state : false;
   }
 
-  get _powerMode() {
-    return this.powerMode;
+  get powerMode() {
+    return this._powerMode;
   }
 
   attackCharacter() {
-    if (this.countAttak > 0) {
-      this.countAttak -= 1;
+    if (this._countAttak > 0) {
+      this._countAttak -= 1;
     } else {
-      this.countAttak = -1;
+      this._countAttak = -1;
       this.powerMode = false;
     }
   }
